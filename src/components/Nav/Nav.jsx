@@ -5,7 +5,9 @@ const Nav = props => {
   return (
     <div className="nav__wrapper">
       <div className="nav__wrapper-left-item">
-        <span>button</span>
+        <span>
+          <i class="fas fa-bars" />
+        </span>
         <h2>fluid Contact</h2>
       </div>
       <div className="nav__wrapper-right-item">
