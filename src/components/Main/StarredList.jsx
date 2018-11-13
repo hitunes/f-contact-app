@@ -2,9 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import * as ContactActions from "../../store/actions/actions";
 
-class List extends React.Component {
-  starContact = value => {
-    this.props.starContact(value);
+class StarredList extends React.Component {
+  unStarContact = value => {
+    console.log(value);
+    this.props.unStarContact(value);
   };
   render() {
     return (
@@ -13,8 +14,8 @@ class List extends React.Component {
           <tbody>
             {this.props.list.map((item, index) => (
               <tr key={index}>
-                <td onClick={() => this.starContact(item)}>
-                  <i className="far fa-star" />
+                <td onClick={() => this.unStarContact(item)}>
+                  <i className="fas fa-star" />
                 </td>
                 <td>image</td>
                 <td>
@@ -37,11 +38,11 @@ class List extends React.Component {
   }
 }
 const mapDispatchToProps = dispatch => ({
-  starContact: payload => {
-    dispatch(ContactActions.starContact(payload));
+  unStarContact: payload => {
+    dispatch(ContactActions.unStarContact(payload));
   }
 });
 export default connect(
   null,
   mapDispatchToProps
-)(List);
+)(StarredList);

@@ -6,7 +6,7 @@ const Nav = props => {
     <div className="nav__wrapper">
       <div className="nav__wrapper-left-item">
         <span>
-          <i class="fas fa-bars" />
+          <i className="fas fa-bars" />
         </span>
         <h2>fluid Contact</h2>
       </div>
