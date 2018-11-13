@@ -1,12 +1,17 @@
 import "./Nav.css";
 import React from "react";
+import { connect } from "react-redux";
+import * as ContactActions from "../../store/actions/actions";
 
 const Nav = props => {
+  const toggleSidebar = payload => {
+    props.toggleSidebar(payload);
+  };
   return (
     <div className="nav__wrapper">
       <div className="nav__wrapper-left-item">
         <span>
-          <i className="fas fa-bars" />
+          <i className="fas fa-bars" onClick={toggleSidebar} />
         </span>
         <h2>fluid Contact</h2>
       </div>
@@ -19,4 +24,12 @@ const Nav = props => {
     </div>
   );
 };
-export default Nav;
+const mapDispatchToProps = dispatch => ({
+  toggleSidebar: payload => {
+    dispatch(ContactActions.toggleSidebar(payload));
+  }
+});
+export default connect(
+  null,
+  mapDispatchToProps
+)(Nav);

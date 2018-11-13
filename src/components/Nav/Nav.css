@@ -26,6 +26,10 @@
   margin-right: 25px;
 }
 
+.nav__wrapper-left-item > span {
+  cursor: pointer;
+}
+
 .nav__wrapper-right-item {
   width: 65%;
   display: -webkit-box;
