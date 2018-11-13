@@ -5,7 +5,7 @@ import StarredContact from "./StarredContact";
 
 const ContactView = params => {
   return (
-    <div className="contact-view">
+    <div className="contact-view" style={{ width: "75%" }}>
       <StarredContact />
       <MainContact />
     </div>
