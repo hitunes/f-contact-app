@@ -1,78 +1,79 @@
-import {
-  FETCH_TRENDS,
-  FETCH_TREND,
-  UPDATE_TREND_LIKES
-} from "../actions/types";
+/*jshint esversion: 6 */
+import * as ContactTypes from "../actions";
 
 const initialState = {
-  allTrends: {
-    items: [],
-    searchTrends: "",
-    loading: true,
-    loadingMore: false,
-    error: ""
-  },
-  categoriesTrends: {
-    items: [],
-    loading: true,
-    loadingMore: false,
-    error: "",
-    searchTrends: ""
-  },
-  selectedTrend: {
-    card: {
-      id: null,
-      category: {},
-      culture: {},
-      event_type: {},
-      content: []
+  contactList: [
+    {
+      id: 0,
+      starred: false,
+      firstName: "Itunu",
+      lastName: "Samuel",
+      email: "Itunu@gmail.com",
+      phoneNo: +2348065976613
     },
-    loading: true,
-    similar: [],
-    meta: [],
-    links: []
-  }
+    {
+      id: 1,
+      starred: false,
+      firstName: "Itunu",
+      lastName: "Samuel",
+      email: "Itunu@gmail.com",
+      phoneNo: +2348065976614
+    },
+    {
+      id: 2,
+      starred: false,
+      firstName: "Itunu",
+      lastName: "Samuel",
+      email: "Itunu@gmail.com",
+      phoneNo: +2348065976615
+    },
+    {
+      id: 3,
+      starred: false,
+      firstName: "Itunu",
+      lastName: "Samuel",
+      email: "Itunu@gmail.com",
+      phoneNo: +2348065976616
+    },
+    {
+      id: 4,
+      starred: false,
+      firstName: "Itunu",
+      lastName: "Samuel",
+      email: "Itunu@gmail.com",
+      phoneNo: +2348065976617
+    },
+    {
+      id: 5,
+      starred: false,
+      firstName: "Itunu",
+      lastName: "Samuel",
+      email: "Itunu@gmail.com",
+      phoneNo: +2348065976618
+    }
+  ],
+  starredList: []
 };
-export default (state = initialState, action) => {
+export const ContactReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_TRENDS:
-      const trendsInfo = action.payload.data;
-      trendsInfo.forEach(trend => {
-        if (trend.like === undefined) {
-          trend.like = trend.like ? true : false;
-        }
+    case ContactTypes.STAR_CONTACT:
+      const contacts = [...state.contactList];
+      const starred = [...state.starredList];
+      const contactFilter = contacts.filter(contact => {
+        return contact.id === action.payload.id;
       });
-      const all = (state.allTrends = {
-        loading: false,
-        loadingMore: false,
-        items:
-          state.allTrends.items.length > 0
-            ? [...state.allTrends.items, ...trendsInfo]
-            : trendsInfo
+      const starredContact = contactFilter.filter(contact => {
+        return (contact.starred = !contact.starred);
       });
-      return { ...state, ...all };
+      starred.push(...starredContact);
+      return { ...state, starredList: starred };
 
-    case FETCH_TREND:
-      const trend = action.payload;
-      const selected = (state.selectedTrend = {
-        loading: false,
-        card: trend.data,
-        similar: trend.similar.data,
-        meta: trend.meta,
-        links: trend.links
-      });
-      return { ...state, ...selected };
-    case UPDATE_TREND_LIKES:
-      let trendingCards = [...state.allTrends.items];
-      trendingCards.forEach(card => {
-        const cardId = action.payload;
-        if (card.uid === cardId && card.like === false) {
-          card.like = !card.like;
-          card.stats.likes++;
-        }
-      });
-      const Likes = (state.allTrends = { items: trendingCards });
-      return { ...state, ...Likes };
+    case ContactTypes.UNSTAR_CONTACT:
+      const unstarred = [...state.starredList];
+      const removeStarred = unstarred.filter(
+        unstar => unstar.id !== action.payload.id
+      );
+      return { ...state, starredList: removeStarred };
     default:
       return state;
   }
