@@ -1,0 +1,46 @@
+.sidebar {
+  padding-top: 15px;
+  position: relative;
+  height: 100vh;
+  width: 275px;
+  -webkit-transition: 0.33s all ease;
+  transition: 0.33s all ease;
+  border-right: 2px solid #F7F7F7;
+  z-index: 11;
+}
+
+.sidebar__ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar__ul li {
+  padding: 10px 20px;
+}
+
+.sidebar__ul li i {
+  margin-right: 20px;
+}
+
+.sidebar__ul li:hover {
+  background-color: #F7F7F7;
+  color: #5225A1;
+  cursor: pointer;
+}
+
+.sidebar.open {
+  left: -275px;
+  display: none;
+}
+
+.divider {
+  margin-top: 6px;
+  border: 1px solid #F7F7F7;
+}
+
+.link-selected {
+  background-color: #F7F7F7;
+  color: #5225A1;
+}
+/*# sourceMappingURL=SideBar.css.map */

@@ -1,9 +1,12 @@
 .contact-view {
-  padding: 25px;
-  margin-left: auto;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .contact-view__wrapper {
+  padding: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,6 +14,14 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.display-fw {
+  width: 100%;
+}
+
+.display-hw {
+  width: calc(100% - 275px);
 }
 
 .list__table table {
