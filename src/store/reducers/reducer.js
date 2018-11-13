@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 import * as ContactTypes from "../actions";
 
 const initialState = {
