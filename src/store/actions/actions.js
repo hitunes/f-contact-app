@@ -16,3 +16,11 @@ export const activeSidebarLink = payload => ({
   type: ContactTypes.ACTIVE_SIDEBAR_LINK,
   payload
 });
+export const markToDelete = payload => ({
+  type: ContactTypes.MARK_TO_DELETE,
+  payload
+});
+export const deleteMultiple = payload => ({
+  type: ContactTypes.DELETE_MULTIPLE_CONTACT,
+  payload
+});

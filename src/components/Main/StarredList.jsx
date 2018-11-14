@@ -12,20 +12,24 @@ const StarredList = props => {
         <tbody>
           {props.list.map((item, index) => (
             <tr key={index}>
-              <td onClick={() => unStarContact(item)}>
-                <i className="fas fa-star" />
+              <td
+                className="list__table-td-icon"
+                onClick={() => unStarContact(item)}
+              >
+                <i className="fas fa-star star-orange" />
               </td>
-              <td>image</td>
-              <td>
+              <td className="list__table-td-image">
+                <img src="images/profile-img.png" alt="profile" />
+              </td>
+              <td className="list__table-td-name">
                 <span>
-                  <strong>{item.firstName}</strong>
+                  <strong>{item.firstName} </strong>
                 </span>
-                {"  "}
                 <span>
-                  <strong>{item.lastName}</strong>
+                  <strong> {item.lastName}</strong>
                 </span>
               </td>
-              <td>{item.email}</td>
+              <td className="list__table-td-email">{item.email}</td>
               <td>{item.phoneNo}</td>
             </tr>
           ))}

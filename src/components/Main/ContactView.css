@@ -1,8 +1,5 @@
 .contact-view {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  border-left: 2px solid #F7F7F7;
 }
 
 .contact-view__wrapper {
@@ -21,7 +18,8 @@
 }
 
 .display-hw {
-  width: calc(100% - 275px);
+  width: calc(100% - 25%);
+  margin-left: auto;
 }
 
 .list__table table {
@@ -31,17 +29,59 @@
 .list__table tr {
   height: 45px;
   width: 100%;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 20px;
 }
 
 .list__table tr:hover {
   background-color: #efefef;
+}
+
+.list__table-td-icon {
+  width: 5%;
+}
+
+.list__table-td-image {
+  width: 4%;
+  margin-right: 25px;
+}
+
+.list__table-td-image img {
+  width: 100%;
+  border-radius: 100%;
+}
+
+.list__table-td-name {
+  width: 25%;
+}
+
+.list__table-td-email {
+  width: 25%;
+}
+
+.list__table-td-phone {
+  width: 25%;
+}
+
+.list__table tr .list__table-td-icon-group i,
+.list__table tr .contact-select i {
+  opacity: 0;
+  margin-left: 16px;
+}
+
+.list__table tr:hover .list__table-td-icon-group i,
+.list__table tr:hover .contact-select i {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.main-contact-icon:hover,
+.star-orange {
+  color: #FF0046;
 }
 /*# sourceMappingURL=ContactView.css.map */

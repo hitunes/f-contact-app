@@ -1,5 +1,6 @@
 .nav {
     &__wrapper {
+        position: fixed;
         height: 65px;
         width: 100%;
         padding: 0 3%;
@@ -8,22 +9,25 @@
         display: flex;
         align-items: center;
         &-left-item {
-            width: 25%;
+            width: 20%;
             display: flex;
             align-items: center;
-            justify-content: space-between;
             margin-right: 25px;
             >span {
                 cursor: pointer;
+                i {
+                    font-size: 20px;
+                    margin-right: 50px;
+                }
             }
         }
         &-right-item {
-            width: 65%;
+            width: 72%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             input {
-                width: 80%;
+                width: 90%;
                 background-color: #7019AF;
                 height: 40px;
                 border: 0;

@@ -1,20 +1,49 @@
 import "./App.css";
+import { connect } from "react-redux";
 import React, { Component } from "react";
 import Nav from "./Nav/Nav";
+import SideBar from "./Aside/SideBar";
 import ContactView from "./Main/ContactView";
+import * as ContactActions from "../store/actions/actions";
 
 class App extends Component {
+  deleteMultiple = contacts => {
+    this.props.deleteMultiple(contacts);
+  };
   render() {
     return (
       <div className="App">
+        <div className="App-new-contact-icon">
+          <i className="fas fa-plus" />
+        </div>
+        {this.props.contacts.selectedRows.length > 0 ? (
+          <div
+            onClick={this.deleteMultiple}
+            className="App-delete-contact-icon"
+          >
+            <i className="fas fa-trash" />
+          </div>
+        ) : (
+          <div />
+        )}
         <Nav />
         <div className="App__body">
-          {/* ><div>Side Man</div> */}
+          <SideBar />
           <ContactView />
         </div>
       </div>
     );
   }
 }
-
-export default App;
+const mapDispatchToProps = dispatch => ({
+  deleteMultiple: payload => {
+    dispatch(ContactActions.deleteMultiple(payload));
+  }
+});
+const mapStateToProps = state => ({
+  contacts: state.contacts
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import * as ContactActions from "../../store/actions/actions";
 
 const Sidebar = props => {
-  console.log(props);
   let sidebarClass = props.sidebar.sidebarOpen ? "sidebar open" : "sidebar";
   const activeSidebarLink = payload => {
     props.activeSidebarLink(payload);
