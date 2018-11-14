@@ -9,14 +9,18 @@ const initialState = {
       firstName: "Itunu",
       lastName: "Samuel",
       email: "Itunu@gmail.com",
-      phoneNo: +2348065976613
+      phoneNo: +2348065976613,
+      checked: false,
+      active: false
     },
     {
       id: 1,
       starred: false,
       firstName: "Itunu",
       lastName: "Samuel",
-      phoneNo: +2348065976614
+      phoneNo: +2348065976614,
+      checked: false,
+      active: false
     },
     {
       id: 2,
@@ -24,7 +28,9 @@ const initialState = {
       firstName: "Itunu",
       lastName: "Samuel",
       email: "Itunu@gmail.com",
-      phoneNo: +2348065976615
+      phoneNo: +2348065976615,
+      checked: false,
+      active: false
     },
     {
       id: 3,
@@ -32,14 +38,18 @@ const initialState = {
       firstName: "Itunu",
       lastName: "Samuel",
       email: "Itunu@gmail.com",
-      phoneNo: +2348065976616
+      phoneNo: +2348065976616,
+      checked: false,
+      active: false
     },
     {
       id: 4,
       starred: false,
       firstName: "Itunu",
       lastName: "Samuel",
-      phoneNo: +2348065976617
+      phoneNo: +2348065976617,
+      checked: false,
+      active: false
     },
     {
       id: 5,
@@ -47,11 +57,14 @@ const initialState = {
       firstName: "Itunu",
       lastName: "Samuel",
       email: "Itunu@gmail.com",
-      phoneNo: +2348065976618
+      phoneNo: +2348065976618,
+      checked: false,
+      active: false
     }
   ],
   starredList: [],
-  multipleDelete: []
+  multipleDelete: [],
+  selectedRows: []
 };
 export const ContactReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -75,15 +88,42 @@ export const ContactReducer = (state = initialState, action) => {
       return { ...state, starredList: removeStarred };
 
     case ContactTypes.MARK_TO_DELETE:
-      const multipleContacts = [...state.contactList];
-      const removeSelected = multipleContacts.filter(
-        item => item.id !== action.payload.id
+      let selectedRows = [...state.selectedRows];
+      let copyContactList = [...state.contactList];
+      const selectedRowIndex = selectedRows.find(
+        item => item.id === action.payload.id
       );
-      return { ...state, multipleDelete: removeSelected };
+      if (selectedRowIndex) {
+        selectedRows.forEach(item => (item.checked = !true));
+        selectedRows = selectedRows.filter(item => {
+          if (!(item.id === action.payload.id)) {
+            item.checked = !false;
+            return item;
+          }
+          return null;
+        });
+      } else {
+        selectedRows.push(action.payload);
+        selectedRows.forEach(item => (item.checked = !false));
+      }
+      copyContactList.forEach(row => {
+        const rowId = action.payload.id;
+        if (row.id === rowId && row.checked === !row.checked) {
+          row.checked = !row.checked;
+        }
+      });
+      return {
+        ...state,
+        selectedRows: selectedRows,
+        contactList: copyContactList
+      };
 
     case ContactTypes.DELETE_MULTIPLE_CONTACT:
-      const deleteMultipleContact = [...state.multipleDelete];
-      return { ...state, contactList: deleteMultipleContact };
+      const multipleContacts = [...state.contactList];
+      const removeSelected = multipleContacts.filter(
+        item => !state.selectedRows.map(j => j.id).includes(item.id)
+      );
+      return { ...state, contactList: removeSelected, selectedRows: [] };
     default:
       return state;
   }

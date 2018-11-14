@@ -16,7 +16,7 @@ class App extends Component {
         <div className="App-new-contact-icon">
           <i className="fas fa-plus" />
         </div>
-        {this.props.contacts.multipleDelete.length > 0 ? (
+        {this.props.contacts.selectedRows.length > 0 ? (
           <div
             onClick={this.deleteMultiple}
             className="App-delete-contact-icon"
