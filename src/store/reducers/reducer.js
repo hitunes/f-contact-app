@@ -144,7 +144,7 @@ export const ContactReducer = (state = initialState, action) => {
         }
         return 0;
       });
-      return { ...state, contactList: cloneContactList };
+      return { ...state, contactList: cloneContactList, contactInfo: [] };
     default:
       return state;
   }
