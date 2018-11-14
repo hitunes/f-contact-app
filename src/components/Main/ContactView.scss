@@ -1,6 +1,5 @@
 .contact-view {
-    width: 100%;
-    display: flex;
+    border-left: 2px solid #F7F7F7;
     &__wrapper {
         padding: 25px;
         display: flex;
@@ -13,7 +12,8 @@
 }
 
 .display-hw {
-    width: calc(100% - 275px)
+    width: calc(100% - 25%);
+    margin-left: auto;
 }
 
 .list__table {
@@ -23,11 +23,46 @@
     tr {
         height: 45px;
         width: 100%;
-        justify-content: space-around;
         display: flex;
         align-items: center;
+        margin-bottom: 20px;
     }
     tr:hover {
         background-color: #efefef
     }
+    &-td-icon {
+        width: 5%;
+    }
+    &-td-image {
+        width: 4%;
+        margin-right: 25px;
+        img {
+            width: 100%;
+            border-radius: 100%;
+        }
+    }
+    &-td-name {
+        width: 25%;
+    }
+    &-td-email {
+        width: 25%;
+    }
+    &-td-phone {
+        width: 25%;
+    }
+    tr .list__table-td-icon-group i,
+    tr .contact-select i {
+        opacity: 0;
+        margin-left: 16px;
+    }
+    tr:hover .list__table-td-icon-group i,
+    tr:hover .contact-select i {
+        opacity: 0.6;
+        cursor: pointer;
+    }
+}
+
+.main-contact-icon:hover,
+.star-orange {
+    color: #FF0046;
 }

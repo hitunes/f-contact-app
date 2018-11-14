@@ -1,5 +1,28 @@
 .App {
+    position: relative;
     &__body {
         display: flex;
+        width: 100%;
+        padding-top: 65px;
+    }
+    &-new-contact-icon,
+    &-delete-contact-icon {
+        position: fixed;
+        bottom: 3%;
+        right: 2%;
+        height: 50px;
+        width: 50px;
+        background-color: #FF0046;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        cursor: pointer;
+        i {
+            color: #ffffff
+        }
+    }
+    &-delete-contact-icon {
+        bottom: 15%;
     }
 }

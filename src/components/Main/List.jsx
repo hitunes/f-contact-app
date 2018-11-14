@@ -6,26 +6,43 @@ const List = props => {
   const starContact = value => {
     props.starContact(value);
   };
+  const markToDelete = value => {
+    console.log(value);
+    props.markToDelete(value);
+  };
   return (
     <div className="list__table">
       <table>
         <tbody>
           {props.list.map((item, index) => (
             <tr key={index}>
-              <td onClick={() => starContact(item)}>
-                <i className="far fa-star" />
+              <td
+                onClick={() => markToDelete(item)}
+                className="list__table-td-icon contact-select"
+              >
+                <i className="far fa-square" />
               </td>
-              <td>image</td>
-              <td>
+              <td className="list__table-td-image">
+                <img src="images/profile-img.png" alt="profile" />
+              </td>
+              <td className="list__table-td-name">
                 <span>
-                  <strong>{item.firstName}</strong>
+                  <strong>{item.firstName} </strong>
                 </span>
                 <span>
-                  <strong>{item.lastName}</strong>
+                  <strong> {item.lastName}</strong>
                 </span>
               </td>
-              <td>{item.email}</td>
-              <td>{item.phoneNo}</td>
+              <td className="list__table-td-email">{item.email}</td>
+              <td className="list__table-td-phone">{item.phoneNo}</td>
+              <td className="list__table-td-icon-group">
+                <i
+                  onClick={() => starContact(item)}
+                  className="far fa-star main-contact-icon"
+                />
+                <i className="fas fa-pen" />
+                <i className="fas fa-ellipsis-v" />
+              </td>
             </tr>
           ))}
         </tbody>
@@ -36,6 +53,9 @@ const List = props => {
 const mapDispatchToProps = dispatch => ({
   starContact: payload => {
     dispatch(ContactActions.starContact(payload));
+  },
+  markToDelete: payload => {
+    dispatch(ContactActions.markToDelete(payload));
   }
 });
 export default connect(

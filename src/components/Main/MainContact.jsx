@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 const MainContact = props => {
   return (
     <div className="contact-view__wrapper">
-      <h4>Contacts ({props.contacts.length})</h4>
+      <h3>Contacts ({props.contacts.length})</h3>
       <List list={props.contacts} />
     </div>
   );

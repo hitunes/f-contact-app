@@ -1,4 +1,5 @@
 .nav__wrapper {
+  position: fixed;
   height: 65px;
   width: 100%;
   padding: 0 3%;
@@ -13,16 +14,13 @@
 }
 
 .nav__wrapper-left-item {
-  width: 25%;
+  width: 20%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   margin-right: 25px;
 }
 
@@ -30,8 +28,13 @@
   cursor: pointer;
 }
 
+.nav__wrapper-left-item > span i {
+  font-size: 20px;
+  margin-right: 50px;
+}
+
 .nav__wrapper-right-item {
-  width: 65%;
+  width: 72%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -44,7 +47,7 @@
 }
 
 .nav__wrapper-right-item input {
-  width: 80%;
+  width: 90%;
   background-color: #7019AF;
   height: 40px;
   border: 0;

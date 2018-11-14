@@ -16,7 +16,6 @@ const initialState = {
       starred: false,
       firstName: "Itunu",
       lastName: "Samuel",
-      email: "Itunu@gmail.com",
       phoneNo: +2348065976614
     },
     {
@@ -40,7 +39,6 @@ const initialState = {
       starred: false,
       firstName: "Itunu",
       lastName: "Samuel",
-      email: "Itunu@gmail.com",
       phoneNo: +2348065976617
     },
     {
@@ -52,7 +50,8 @@ const initialState = {
       phoneNo: +2348065976618
     }
   ],
-  starredList: []
+  starredList: [],
+  multipleDelete: []
 };
 export const ContactReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -74,6 +73,17 @@ export const ContactReducer = (state = initialState, action) => {
         unstar => unstar.id !== action.payload.id
       );
       return { ...state, starredList: removeStarred };
+
+    case ContactTypes.MARK_TO_DELETE:
+      const multipleContacts = [...state.contactList];
+      const removeSelected = multipleContacts.filter(
+        item => item.id !== action.payload.id
+      );
+      return { ...state, multipleDelete: removeSelected };
+
+    case ContactTypes.DELETE_MULTIPLE_CONTACT:
+      const deleteMultipleContact = [...state.multipleDelete];
+      return { ...state, contactList: deleteMultipleContact };
     default:
       return state;
   }
