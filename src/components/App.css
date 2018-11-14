@@ -28,6 +28,7 @@
           align-items: center;
   border-radius: 50%;
   cursor: pointer;
+  z-index: 14;
 }
 
 .App-new-contact-icon i, .App-delete-contact-icon i {
@@ -36,5 +37,21 @@
 
 .App-delete-contact-icon {
   bottom: 15%;
+}
+
+::-webkit-input-placeholder {
+  opacity: 0.5;
+}
+
+:-ms-input-placeholder {
+  opacity: 0.5;
+}
+
+::-ms-input-placeholder {
+  opacity: 0.5;
+}
+
+::placeholder {
+  opacity: 0.5;
 }
 /*# sourceMappingURL=App.css.map */

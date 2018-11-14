@@ -18,6 +18,7 @@
         align-items: center;
         border-radius: 50%;
         cursor: pointer;
+        z-index: 14;
         i {
             color: #ffffff
         }
@@ -25,4 +26,8 @@
     &-delete-contact-icon {
         bottom: 15%;
     }
+}
+
+::placeholder {
+    opacity: 0.5;
 }
