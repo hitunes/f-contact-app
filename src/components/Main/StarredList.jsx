@@ -19,7 +19,7 @@ const StarredList = props => {
                 <i className="fas fa-star star-orange" />
               </td>
               <td className="list__table-td-image">
-                <img src="images/profile-img.png" alt="profile" />
+                <img src={item.image} alt="profile" />
               </td>
               <td className="list__table-td-name">
                 <span>

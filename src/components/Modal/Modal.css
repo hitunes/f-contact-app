@@ -1,0 +1,131 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 15;
+}
+
+.modal-main {
+  position: fixed;
+  background: #ffffff;
+  width: 50%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.modal-title {
+  height: 40px;
+  font-size: 22px;
+  background-color: #F7F7F7;
+  padding: 10px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px 20px;
+}
+
+.modal-body--icon-row {
+  width: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-body--icon-row .contact-avatar {
+  font-size: 40px;
+}
+
+.modal-body__input {
+  width: 80%;
+  padding-top: 23px;
+}
+
+.modal-body__input div {
+  margin-bottom: 10px;
+}
+
+.modal-body__input input {
+  height: 25px;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  width: 100%;
+}
+
+.modal-body__input input:focus {
+  outline: 0;
+}
+
+.modal-body__input--name input, .modal-body__input--job input {
+  width: 48%;
+}
+
+.modal-body__input--name input:nth-child(1), .modal-body__input--job input:nth-child(1) {
+  margin-right: 4%;
+}
+
+.modal-body__input--phone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modal-body__input--phone input {
+  margin-left: 10px;
+}
+
+.modal-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+.modal-footer div {
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.modal-footer > div:nth-child(1) {
+  color: #5700A0;
+  margin-right: 30px;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+/*# sourceMappingURL=Modal.css.map */

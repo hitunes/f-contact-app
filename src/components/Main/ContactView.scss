@@ -33,6 +33,9 @@
     &-td-icon {
         width: 5%;
     }
+    &-td-icon-group {
+        display: flex;
+    }
     &-td-image {
         width: 4%;
         margin-right: 25px;
@@ -65,4 +68,31 @@
 .main-contact-icon:hover,
 .star-orange {
     color: #FF0046;
+}
+
+.add-new-contact-icon {
+    height: 50px;
+    width: 50px;
+    background-color: #FF0046;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #ffffff
+}
+
+.intro-text {
+    display: flex;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-active {
+    background-color: #efefef;
+    i {
+        opacity: 0.6;
+        cursor: pointer;
+    }
 }

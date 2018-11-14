@@ -46,6 +46,12 @@
   width: 5%;
 }
 
+.list__table-td-icon-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .list__table-td-image {
   width: 4%;
   margin-right: 25px;
@@ -83,5 +89,45 @@
 .main-contact-icon:hover,
 .star-orange {
   color: #FF0046;
+}
+
+.add-new-contact-icon {
+  height: 50px;
+  width: 50px;
+  background-color: #FF0046;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.intro-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 200px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.row-active {
+  background-color: #efefef;
+}
+
+.row-active i {
+  opacity: 0.6;
+  cursor: pointer;
 }
 /*# sourceMappingURL=ContactView.css.map */

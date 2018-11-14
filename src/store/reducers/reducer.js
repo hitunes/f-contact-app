@@ -1,7 +1,9 @@
 /*jshint esversion: 6 */
 import * as ContactTypes from "../actions";
+const rand = Math.random(0) * 10;
 
 const initialState = {
+  contactInfo: [],
   contactList: [
     {
       id: 0,
@@ -9,9 +11,10 @@ const initialState = {
       firstName: "Itunu",
       lastName: "Samuel",
       email: "Itunu@gmail.com",
-      phoneNo: +2348065976613,
+      phoneNo: "+234806597613",
       checked: false,
-      active: false
+      active: false,
+      image: `https://robohash.org/${rand + 1}.png?bgset=bg1`
     },
     {
       id: 1,
@@ -20,7 +23,8 @@ const initialState = {
       lastName: "Samuel",
       phoneNo: +2348065976614,
       checked: false,
-      active: false
+      active: false,
+      image: `https://robohash.org/${rand + 2}.png?bgset=bg1`
     },
     {
       id: 2,
@@ -30,7 +34,8 @@ const initialState = {
       email: "Itunu@gmail.com",
       phoneNo: +2348065976615,
       checked: false,
-      active: false
+      active: false,
+      image: `https://robohash.org/${rand + 3}.png?bgset=bg1`
     },
     {
       id: 3,
@@ -40,26 +45,8 @@ const initialState = {
       email: "Itunu@gmail.com",
       phoneNo: +2348065976616,
       checked: false,
-      active: false
-    },
-    {
-      id: 4,
-      starred: false,
-      firstName: "Itunu",
-      lastName: "Samuel",
-      phoneNo: +2348065976617,
-      checked: false,
-      active: false
-    },
-    {
-      id: 5,
-      starred: false,
-      firstName: "Itunu",
-      lastName: "Samuel",
-      email: "Itunu@gmail.com",
-      phoneNo: +2348065976618,
-      checked: false,
-      active: false
+      active: false,
+      image: `https://robohash.org/${rand + 4}.png?bgset=bg1`
     }
   ],
   starredList: [],
@@ -124,6 +111,40 @@ export const ContactReducer = (state = initialState, action) => {
         item => !state.selectedRows.map(j => j.id).includes(item.id)
       );
       return { ...state, contactList: removeSelected, selectedRows: [] };
+
+    case ContactTypes.HANDLE_INPUT_CHANGE:
+      const contactInfoCopy = [...state.contactInfo];
+      return { ...state, contactInfo: [...contactInfoCopy, action.payload] };
+
+    case ContactTypes.HANDLE_NEW_CONTACT_SUBMIT:
+      const cloneContactList = [...state.contactList];
+      const submittedContact = [...state.contactInfo];
+      const mergeContactList = submittedContact.reduce(
+        (r, c) => Object.assign(r, c),
+        {
+          id: cloneContactList.length,
+          image: `https://robohash.org/${
+            cloneContactList.length
+          }.png?bgset=bg1`,
+          starred: false,
+          checked: false,
+          active: false
+        },
+        {}
+      );
+      cloneContactList.push(mergeContactList);
+      cloneContactList.sort((a, b) => {
+        let nameA = a.firstName.toLowerCase();
+        let nameB = b.firstName.toLowerCase();
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+      });
+      return { ...state, contactList: cloneContactList };
     default:
       return state;
   }
