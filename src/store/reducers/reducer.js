@@ -56,16 +56,18 @@ const initialState = {
 export const ContactReducer = (state = initialState, action) => {
   switch (action.type) {
     case ContactTypes.STAR_CONTACT:
-      const contacts = [...state.contactList];
-      const starred = [...state.starredList];
-      const contactFilter = contacts.filter(contact => {
-        return contact.id === action.payload.id;
-      });
-      const starredContact = contactFilter.filter(contact => {
-        return (contact.starred = !contact.starred);
-      });
-      starred.push(...starredContact);
-      return { ...state, starredList: starred };
+      const starredItem = [...state.starredList];
+      if (starredItem.length === 0) {
+        starredItem.push(action.payload);
+      } else {
+        let contactChecker = starredItem.filter((item, index) => {
+          return item.id === action.payload.id;
+        });
+        if (contactChecker.length === 0) {
+          starredItem.push(action.payload);
+        }
+      }
+      return { ...state, starredList: starredItem };
 
     case ContactTypes.UNSTAR_CONTACT:
       const unstarred = [...state.starredList];
