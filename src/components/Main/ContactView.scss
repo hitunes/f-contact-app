@@ -26,9 +26,15 @@
         display: flex;
         align-items: center;
         margin-bottom: 20px;
+        cursor: pointer;
     }
     tr:hover {
         background-color: #efefef
+    }
+    td {
+        height: 100%;
+        display: flex;
+        align-items: center;
     }
     &-td-icon {
         width: 5%;
@@ -46,6 +52,9 @@
     }
     &-td-name {
         width: 25%;
+        >span:nth-child(1) {
+            margin-right: 8px;
+        }
     }
     &-td-email {
         width: 25%;

@@ -6,6 +6,9 @@ const StarredList = props => {
   const unStarContact = value => {
     props.unStarContact(value);
   };
+  const showViewModal = payload => {
+    props.showViewContactModal(payload);
+  };
   return (
     <div className="list__table">
       <table>
@@ -18,10 +21,16 @@ const StarredList = props => {
               >
                 <i className="fas fa-star star-orange" />
               </td>
-              <td className="list__table-td-image">
+              <td
+                onClick={() => showViewModal(item)}
+                className="list__table-td-image"
+              >
                 <img src={item.image} alt="profile" />
               </td>
-              <td className="list__table-td-name">
+              <td
+                onClick={() => showViewModal(item)}
+                className="list__table-td-name"
+              >
                 <span>
                   <strong>{item.firstName} </strong>
                 </span>
@@ -29,8 +38,13 @@ const StarredList = props => {
                   <strong> {item.lastName}</strong>
                 </span>
               </td>
-              <td className="list__table-td-email">{item.email}</td>
-              <td>{item.phoneNo}</td>
+              <td
+                onClick={() => showViewModal(item)}
+                className="list__table-td-email"
+              >
+                {item.email}
+              </td>
+              <td onClick={() => showViewModal(item)}>{item.phoneNo}</td>
             </tr>
           ))}
         </tbody>
@@ -42,6 +56,9 @@ const StarredList = props => {
 const mapDispatchToProps = dispatch => ({
   unStarContact: payload => {
     dispatch(ContactActions.unStarContact(payload));
+  },
+  showViewContactModal: payload => {
+    dispatch(ContactActions.showViewContactModal(payload));
   }
 });
 export default connect(

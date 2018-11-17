@@ -36,10 +36,21 @@
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .list__table tr:hover {
   background-color: #efefef;
+}
+
+.list__table td {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .list__table-td-icon {
@@ -64,6 +75,10 @@
 
 .list__table-td-name {
   width: 25%;
+}
+
+.list__table-td-name > span:nth-child(1) {
+  margin-right: 8px;
 }
 
 .list__table-td-email {
