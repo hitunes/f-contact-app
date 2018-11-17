@@ -4,6 +4,7 @@ const rand = Math.random(0) * 10;
 
 const initialState = {
   contactInfo: [],
+  editContactInfo: [],
   contactList: [
     {
       id: 0,
@@ -12,6 +13,8 @@ const initialState = {
       lastName: "Samuel",
       email: "Itunu@gmail.com",
       phoneNo: "+234806597613",
+      jobTitle: "Frontend Deveolper",
+      company: "",
       checked: false,
       active: false,
       image: `https://robohash.org/${rand + 1}.png?bgset=bg1`
@@ -22,6 +25,8 @@ const initialState = {
       firstName: "Itunu",
       lastName: "Samuel",
       phoneNo: +2348065976614,
+      jobTitle: "Frontend Deveolper",
+      company: "Fluid Angle",
       checked: false,
       active: false,
       image: `https://robohash.org/${rand + 2}.png?bgset=bg1`
@@ -32,6 +37,8 @@ const initialState = {
       firstName: "Itunu",
       lastName: "Samuel",
       email: "Itunu@gmail.com",
+      jobTitle: "Frontend Deveolper",
+      company: "",
       phoneNo: +2348065976615,
       checked: false,
       active: false,
@@ -43,6 +50,8 @@ const initialState = {
       firstName: "Itunu",
       lastName: "Samuel",
       email: "Itunu@gmail.com",
+      jobTitle: "Frontend Deveolper",
+      company: "Fluid Angle",
       phoneNo: +2348065976616,
       checked: false,
       active: false,
@@ -55,18 +64,26 @@ const initialState = {
 };
 export const ContactReducer = (state = initialState, action) => {
   switch (action.type) {
+    //add starred contact to starredList
     case ContactTypes.STAR_CONTACT:
-      const contacts = [...state.contactList];
-      const starred = [...state.starredList];
-      const contactFilter = contacts.filter(contact => {
-        return contact.id === action.payload.id;
+      const starredItem = [...state.starredList];
+      if (starredItem.length === 0) {
+        starredItem.push(action.payload);
+      } else {
+        let contactChecker = starredItem.filter((item, index) => {
+          return item.id === action.payload.id;
+        });
+        if (contactChecker.length === 0) {
+          starredItem.push(action.payload);
+        }
+      }
+      starredItem.forEach(item => {
+        if (item.id === action.payload.id && item.starred === false) {
+          item.starred = !item.starred;
+        }
       });
-      const starredContact = contactFilter.filter(contact => {
-        return (contact.starred = !contact.starred);
-      });
-      starred.push(...starredContact);
-      return { ...state, starredList: starred };
-
+      return { ...state, starredList: starredItem };
+    // remove starred contact for starredList
     case ContactTypes.UNSTAR_CONTACT:
       const unstarred = [...state.starredList];
       const removeStarred = unstarred.filter(
@@ -104,13 +121,28 @@ export const ContactReducer = (state = initialState, action) => {
         selectedRows: selectedRows,
         contactList: copyContactList
       };
-
+    // delete single or multiple contacts
     case ContactTypes.DELETE_MULTIPLE_CONTACT:
       const multipleContacts = [...state.contactList];
       const removeSelected = multipleContacts.filter(
         item => !state.selectedRows.map(j => j.id).includes(item.id)
       );
       return { ...state, contactList: removeSelected, selectedRows: [] };
+    // deletes a single contact information
+    case ContactTypes.DELETE_SINGLE_CONTACT:
+      let updateDeleteContact = [...state.contactList];
+      let updateStarredContact = [...state.starredList];
+      let updatedContactList = updateDeleteContact.filter(
+        contact => contact.id !== action.payload.id
+      );
+      let updatedStarredList = updateStarredContact.filter(
+        contact => contact.id !== action.payload.id
+      );
+      return {
+        ...state,
+        contactList: updatedContactList,
+        starredList: updatedStarredList
+      };
 
     case ContactTypes.HANDLE_INPUT_CHANGE:
       const contactInfoCopy = [...state.contactInfo];
@@ -119,6 +151,7 @@ export const ContactReducer = (state = initialState, action) => {
     case ContactTypes.HANDLE_NEW_CONTACT_SUBMIT:
       const cloneContactList = [...state.contactList];
       const submittedContact = [...state.contactInfo];
+      // merge field object and push data info not set on creating new contact
       const mergeContactList = submittedContact.reduce(
         (r, c) => Object.assign(r, c),
         {
@@ -133,6 +166,7 @@ export const ContactReducer = (state = initialState, action) => {
         {}
       );
       cloneContactList.push(mergeContactList);
+      // sorts the array alphabetically
       cloneContactList.sort((a, b) => {
         let nameA = a.firstName.toLowerCase();
         let nameB = b.firstName.toLowerCase();
@@ -145,6 +179,36 @@ export const ContactReducer = (state = initialState, action) => {
         return 0;
       });
       return { ...state, contactList: cloneContactList, contactInfo: [] };
+
+    // gets the values of edit modal
+    case ContactTypes.HANDLE_EDIT_INPUT_CHANGE:
+      const editContactInfoCopy = [...state.editContactInfo];
+      return {
+        ...state,
+        editContactInfo: [...editContactInfoCopy, action.payload]
+      };
+    // merge the values of edit modal
+    case ContactTypes.HANDLE_EDIT_CONTACT_SUBMIT:
+      const cloneEditedContactList = [...state.contactList];
+      const submittedEditedContact = [...state.editContactInfo];
+      const mergeEditedContact = submittedEditedContact.reduce(
+        (r, c) => Object.assign(r, c),
+        {}
+      );
+      let k = cloneEditedContactList.filter(
+        item => item.id === mergeEditedContact.id
+      );
+      let j = Object.assign({}, k[0], mergeEditedContact);
+
+      cloneEditedContactList.forEach((contact, index) =>
+        contact.id === j.id ? (cloneEditedContactList[index] = j) : contact
+      );
+
+      return {
+        ...state,
+        contactList: cloneEditedContactList,
+        editcontactInfo: []
+      };
     default:
       return state;
   }

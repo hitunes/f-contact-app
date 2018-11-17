@@ -54,4 +54,14 @@
 ::placeholder {
   opacity: 0.5;
 }
+
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.d-none {
+  display: none;
+}
 /*# sourceMappingURL=App.css.map */

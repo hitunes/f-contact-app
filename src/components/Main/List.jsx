@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import EditContact from "../EditContact/EditContact";
 import * as ContactActions from "../../store/actions/actions";
+import ViewContact from "../ViewContact/ViewContact";
 
 const List = props => {
   const starContact = value => {
@@ -13,7 +14,15 @@ const List = props => {
   const showModal = payload => {
     props.showNewContactModal(payload);
   };
-  console.log(props);
+  const showEditModal = payload => {
+    props.showEditContactModal(payload);
+  };
+  const showViewModal = payload => {
+    props.showViewContactModal(payload);
+  };
+  const hideViewModal = payload => {
+    props.hideViewContactModal(payload);
+  };
   return (
     <div className="list__table">
       {props.list.length === 0 ? (
@@ -24,6 +33,8 @@ const List = props => {
       ) : (
         <table>
           <tbody>
+            <ViewContact hideViewModal={hideViewModal} />
+            <EditContact />
             {props.list.map((item, index) => {
               const activeRow = item.checked === !false ? "row-active" : "row";
               const checker =
@@ -38,10 +49,16 @@ const List = props => {
                   >
                     <i className={`${checker}`} />
                   </td>
-                  <td className="list__table-td-image">
+                  <td
+                    onClick={() => showViewModal(item)}
+                    className="list__table-td-image"
+                  >
                     <img src={item.image} alt="profile" />
                   </td>
-                  <td className="list__table-td-name">
+                  <td
+                    onClick={() => showViewModal(item)}
+                    className="list__table-td-name"
+                  >
                     <span>
                       <strong>{item.firstName} </strong>
                     </span>
@@ -49,14 +66,29 @@ const List = props => {
                       <strong> {item.lastName}</strong>
                     </span>
                   </td>
-                  <td className="list__table-td-email">{item.email}</td>
-                  <td className="list__table-td-phone">{item.phoneNo}</td>
+                  <td
+                    onClick={() => showViewModal(item)}
+                    className="list__table-td-email"
+                  >
+                    {item.email}
+                  </td>
+                  <td
+                    onClick={() => showViewModal(item)}
+                    className="list__table-td-phone"
+                  >
+                    {item.phoneNo}
+                  </td>
                   <td className="list__table-td-icon-group">
                     <i
                       onClick={() => starContact(item)}
                       className="far fa-star main-contact-icon"
                     />
-                    <EditContact contact={item} />
+                    <div
+                      className="modal-icon-launcher"
+                      onClick={() => showEditModal(item)}
+                    >
+                      <i className="fas fa-pen" />
+                    </div>
                     <i className="fas fa-ellipsis-v" />
                   </td>
                 </tr>
@@ -77,9 +109,22 @@ const mapDispatchToProps = dispatch => ({
   },
   showNewContactModal: payload => {
     dispatch(ContactActions.showNewContactModal(payload));
+  },
+  showEditContactModal: payload => {
+    dispatch(ContactActions.showEditContactModal(payload));
+  },
+  showViewContactModal: payload => {
+    dispatch(ContactActions.showViewContactModal(payload));
+  },
+  hideViewContactModal: payload => {
+    dispatch(ContactActions.hideViewContactModal(payload));
   }
 });
+const mapStateToProps = state => ({
+  contacts: state.contacts
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(List);
