@@ -48,10 +48,12 @@
 }
 
 .nav__wrapper-right-item input {
-  width: 90%;
+  width: calc(100% - 60px);
   background-color: #7019AF;
   height: 40px;
   border: 0;
+  border-radius: 8px 8px 0 0;
+  padding-left: 60px;
 }
 
 .nav__wrapper-right-item input:focus {
@@ -69,5 +71,21 @@
   border-radius: 50%;
   height: 100%;
   width: 100%;
+}
+
+.nav__wrapper-right-item ::-webkit-input-placeholder {
+  color: white;
+}
+
+.nav__wrapper-right-item :-ms-input-placeholder {
+  color: white;
+}
+
+.nav__wrapper-right-item ::-ms-input-placeholder {
+  color: white;
+}
+
+.nav__wrapper-right-item ::placeholder {
+  color: white;
 }
 /*# sourceMappingURL=Nav.css.map */

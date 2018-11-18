@@ -1,0 +1,52 @@
+.suggestions-list-wrapper {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    background: #fff;
+    border-top: 2px solid #efefef;
+    box-shadow: 0 4px 6px 0 rgba(32, 33, 36, 0.28);
+    border-radius: 0;
+    ul {
+        padding: 15px;
+        li {
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+            min-width: 0;
+            max-height: none;
+            padding: 0;
+            color: #000000;
+        }
+    }
+}
+
+.suggestion {
+    &-image {
+        margin-right: 15px;
+    }
+    &-firstname,
+    &-lastname {
+        margin-right: 8px;
+        font-size: 18px
+    }
+    &-email {
+        margin-left: 10px;
+        opacity: 0.5;
+    }
+}
+
+.search-input {
+    &__wrapper {
+        width: 90%;
+        position: relative;
+        i {
+            position: absolute;
+            left: 25px;
+            top: 12px;
+        }
+    }
+    &--active {
+        background-color: #ffffff !important;
+        color: rgba(0, 0, 0, 0.6);
+    }
+}

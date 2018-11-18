@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import NewContactForm from "./NewContactForm";
 import ModalLauncher from "./../Modal/ModalLauncher";
 import * as ContactActions from "../../store/actions/actions";
+import { Button } from "../Button/Button";
 
 const NewContact = props => {
   const showModal = payload => {
@@ -35,11 +36,14 @@ const NewContact = props => {
             <i className="fas fa-phone" />
             <i className="fas fa-file-alt" />
           </div>
-          <NewContactForm handleInputChange={handleInputChange} />
+          <NewContactForm
+            handleNewContactSubmit={handleNewContactSubmit}
+            handleInputChange={handleInputChange}
+          />
         </div>
         <div className="modal-footer">
-          <div onClick={hideModal}>Cancel</div>
-          <div onClick={handleNewContactSubmit}>Save</div>
+          <Button onClick={hideModal}>Cancel</Button>
+          <Button onClick={handleNewContactSubmit}>Save</Button>
         </div>
       </ModalLauncher>
       {props.contacts.contactList.length === 0 ? (

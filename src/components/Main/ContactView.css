@@ -1,5 +1,6 @@
 .contact-view {
   border-left: 2px solid #F7F7F7;
+  height: 100vh;
 }
 
 .contact-view__wrapper {
@@ -11,6 +12,10 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.contact-view__wrapper h3 {
+  font-weight: 500;
 }
 
 .display-fw {

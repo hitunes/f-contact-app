@@ -28,10 +28,12 @@
             align-items: center;
             justify-content: space-between;
             input {
-                width: 90%;
+                width: calc(100% - 60px);
                 background-color: #7019AF;
                 height: 40px;
                 border: 0;
+                border-radius: 8px 8px 0 0;
+                padding-left: 60px;
             }
             input:focus {
                 border: 0;
@@ -46,6 +48,9 @@
                     height: 100%;
                     width: 100%;
                 }
+            }
+             ::placeholder {
+                color: white;
             }
         }
     }

@@ -3,7 +3,7 @@ import React from "react";
 const NewContactForm = props => {
   return (
     <div className="modal-body__input">
-      <form>
+      <form onSubmit={props.handleNewContactSubmit}>
         <div className="modal-body__input--name">
           <input
             type="text"
@@ -25,12 +25,14 @@ const NewContactForm = props => {
             type="text"
             name="company"
             placeholder="Company"
+            defaultValue=""
             onChange={props.handleInputChange}
           />
           <input
             type="text"
             name="jobTitle"
             placeholder="Job Title"
+            defaultValue=""
             onChange={props.handleInputChange}
           />
         </div>
@@ -39,6 +41,7 @@ const NewContactForm = props => {
             type="email"
             name="email"
             placeholder="Email"
+            defaultValue=""
             onChange={props.handleInputChange}
           />
         </div>
@@ -51,6 +54,7 @@ const NewContactForm = props => {
             type="tel"
             name="phoneNo"
             placeholder="Phone"
+            defaultValue=""
             onChange={props.handleInputChange}
           />
         </div>
@@ -59,6 +63,7 @@ const NewContactForm = props => {
             type="textarea"
             name="notes"
             placeholder="Notes"
+            defaultValue=""
             onChange={props.handleInputChange}
           />
         </div>

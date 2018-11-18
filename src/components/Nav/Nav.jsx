@@ -1,5 +1,6 @@
 import "./Nav.css";
 import React from "react";
+import Search from "../Search/Search";
 import { connect } from "react-redux";
 import * as ContactActions from "../../store/actions/actions";
 
@@ -16,7 +17,7 @@ const Nav = props => {
         <h2>fluid Contact</h2>
       </div>
       <div className="nav__wrapper-right-item">
-        <input type="text" placeholder="Seach" />
+        <Search suggestions={[...props.contacts]} />
         <div className="nav__wrapper-right-item--image">
           <img src="/images/profile-img.png" alt="" />
         </div>
@@ -29,7 +30,11 @@ const mapDispatchToProps = dispatch => ({
     dispatch(ContactActions.toggleSidebar(payload));
   }
 });
+const mapStateToProps = state => ({
+  contacts: state.contacts.contactList
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Nav);

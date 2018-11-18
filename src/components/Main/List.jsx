@@ -24,80 +24,90 @@ const List = props => {
     props.hideViewContactModal(payload);
   };
   return (
-    <div className="list__table">
-      {props.list.length === 0 ? (
-        <div className="intro-text">
-          <i onClick={showModal} className="fas fa-plus add-new-contact-icon" />
-          <div>Your Contact list is Empty, click to add New Contact</div>
-        </div>
-      ) : (
-        <table>
-          <tbody>
-            <ViewContact hideViewModal={hideViewModal} />
-            <EditContact />
-            {props.list.map((item, index) => {
-              const activeRow = item.checked === !false ? "row-active" : "row";
-              const checker =
-                item.checked === !false
-                  ? "fas fa-check-square"
-                  : "far fa-square";
-              return (
-                <tr key={index} className={activeRow}>
-                  <td
-                    onClick={() => markToDelete(item)}
-                    className="list__table-td-icon contact-select"
-                  >
-                    <i className={`${checker}`} />
-                  </td>
-                  <td
-                    onClick={() => showViewModal(item)}
-                    className="list__table-td-image"
-                  >
-                    <img src={item.image} alt="profile" />
-                  </td>
-                  <td
-                    onClick={() => showViewModal(item)}
-                    className="list__table-td-name"
-                  >
-                    <span>
-                      <strong>{item.firstName} </strong>
-                    </span>
-                    <span>
-                      <strong> {item.lastName}</strong>
-                    </span>
-                  </td>
-                  <td
-                    onClick={() => showViewModal(item)}
-                    className="list__table-td-email"
-                  >
-                    {item.email}
-                  </td>
-                  <td
-                    onClick={() => showViewModal(item)}
-                    className="list__table-td-phone"
-                  >
-                    {item.phoneNo}
-                  </td>
-                  <td className="list__table-td-icon-group">
-                    <i
-                      onClick={() => starContact(item)}
-                      className="far fa-star main-contact-icon"
-                    />
-                    <div
-                      className="modal-icon-launcher"
-                      onClick={() => showEditModal(item)}
+    <React.Fragment>
+      <ViewContact hideViewModal={hideViewModal} />
+      <EditContact />
+      <div className="list__table">
+        {props.list.length === 0 ? (
+          <div className="intro-text">
+            <i
+              onClick={showModal}
+              className="fas fa-plus add-new-contact-icon"
+            />
+            <div>Your Contact list is Empty, click to add New Contact</div>
+          </div>
+        ) : (
+          <table>
+            <tbody>
+              {props.list.map((item, index) => {
+                const activeRow =
+                  item.checked === !false ? "row-active" : "row";
+                const checker =
+                  item.checked === !false
+                    ? "fas fa-check-square"
+                    : "far fa-square";
+                return (
+                  <tr key={index} className={activeRow}>
+                    <td
+                      onClick={() => markToDelete(item)}
+                      className="list__table-td-icon contact-select"
                     >
-                      <i className="fas fa-pen" />
-                    </div>
-                    <i className="fas fa-ellipsis-v" />
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      )}
-    </div>
+                      <i className={`${checker}`} />
+                    </td>
+                    <td
+                      onClick={() => showViewModal(item)}
+                      className="list__table-td-image"
+                    >
+                      <img src={item.image} alt="profile" />
+                    </td>
+                    <td
+                      onClick={() => showViewModal(item)}
+                      className="list__table-td-name"
+                    >
+                      <span>
+                        <strong>{item.firstName} </strong>
+                      </span>
+                      <span>
+                        <strong> {item.lastName}</strong>
+                      </span>
+                    </td>
+                    <td
+                      onClick={() => showViewModal(item)}
+                      className="list__table-td-email"
+                    >
+                      {item.email}
+                    </td>
+                    <td
+                      onClick={() => showViewModal(item)}
+                      className="list__table-td-phone"
+                    >
+                      {item.phoneNo}
+                    </td>
+                    <td className="list__table-td-icon-group">
+                      <i
+                        onClick={() => starContact(item)}
+                        className="far fa-star main-contact-icon"
+                      />
+                      <div
+                        className="modal-icon-launcher"
+                        onClick={() => showEditModal(item)}
+                      >
+                        <i className="fas fa-pen" />
+                      </div>
+
+                      <i
+                        onClick={() => markToDelete(item)}
+                        className="fas fa-ellipsis-v"
+                      />
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        )}
+      </div>
+    </React.Fragment>
   );
 };
 const mapDispatchToProps = dispatch => ({

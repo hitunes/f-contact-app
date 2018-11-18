@@ -1,0 +1,49 @@
+.button__wrapper {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #ffffff;
+  -webkit-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+          box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  border-radius: 2px;
+}
+
+.button__button {
+  border: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  height: 36px;
+  line-height: 36px;
+  width: 100%;
+  border-radius: 2px;
+  -webkit-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  background-color: #5700A0;
+  text-align: center;
+}
+
+.button__title {
+  height: 36px;
+  border-radius: 2px;
+  -webkit-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  top: 0px;
+}
+
+.button__title div {
+  opacity: 1;
+  font-size: 14px;
+  letter-spacing: 0px;
+  font-weight: 500;
+  margin: 0px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: #ffffff;
+}
+/*# sourceMappingURL=Button.css.map */
