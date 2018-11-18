@@ -35,7 +35,6 @@ const ViewContact = props => {
     } else {
       return null;
     }
-    return null;
   };
   const contact = props.viewContact.contactInfo;
   const toggleDeleteState = props.viewContact.showDelete;

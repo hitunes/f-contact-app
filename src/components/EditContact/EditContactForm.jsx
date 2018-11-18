@@ -1,6 +1,7 @@
 import React from "react";
 
 const EditContactForm = props => {
+  console.log(props.contact);
   return (
     <div className="modal-body__input">
       <form key={props.contact}>
@@ -10,14 +11,14 @@ const EditContactForm = props => {
             name="firstName"
             placeholder="First Name"
             onChange={props.handleEditInputChange}
-            defaultValue={props.contact.firstName}
+            value={"" || props.contact.firstName}
           />
           <input
             type="text"
             name="lastName"
             placeholder="Last Name"
             onChange={props.handleEditInputChange}
-            defaultValue={props.contact.lastName}
+            defaultValue={"" || props.contact.lastName}
           />
         </div>
         <div className="modal-body__input--job">
@@ -51,7 +52,7 @@ const EditContactForm = props => {
             name="Phone"
             placeholder="Phone"
             onChange={props.handleEditInputChange}
-            defaultValue={props.contact.phoneNo}
+            value={"" || props.contact.phoneNo}
           />
         </div>
         <div className="modal-body__input--phone">

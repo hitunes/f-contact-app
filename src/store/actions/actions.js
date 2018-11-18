@@ -73,3 +73,11 @@ export const showDeleteSingleContact = payload => ({
   type: ContactTypes.TOGGLE_DELETE_SINGLE_CONTACT,
   payload
 });
+export const handleSearchChange = payload => ({
+  type: ContactTypes.HANDLE_SEARCH_CHANGE,
+  payload
+});
+export const handleSearchOnclick = payload => ({
+  type: ContactTypes.HANDLE_SEARCH_ONCLICK,
+  payload
+});

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import ModalLauncher from "./../Modal/ModalLauncher";
 import * as ContactActions from "../../store/actions/actions";
 import EditContactForm from "./EditContactForm";
+import { Button } from "../Button/Button";
 
 const EditContact = props => {
   const hideModal = payload => {
@@ -21,6 +22,7 @@ const EditContact = props => {
     props.hideEditContactModal(value);
   };
   const contact = props.editContact.contactInfo;
+  console.log(contact);
   return (
     <React.Fragment>
       <ModalLauncher show={props.editContact.showEditContactModal}>
@@ -44,8 +46,8 @@ const EditContact = props => {
           />
         </div>
         <div className="modal-footer">
-          <div onClick={hideModal}>Cancel</div>
-          <div onClick={handleEditContactSubmit}>Save</div>
+          <Button onClick={hideModal}>Cancel</Button>
+          <Button onClick={handleEditContactSubmit}>Save</Button>
         </div>
       </ModalLauncher>
     </React.Fragment>
