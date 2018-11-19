@@ -145,3 +145,15 @@
         cursor: pointer;
     }
 }
+
+.starred-image {
+    @media screen and (max-width: 414px) {
+        width: 13%;
+    }
+}
+
+.starred-icon {
+    @media screen and (max-width: 414px) {
+        margin-right: 15px;
+    }
+}

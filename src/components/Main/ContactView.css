@@ -220,4 +220,16 @@
   opacity: 0.6;
   cursor: pointer;
 }
+
+@media screen and (max-width: 414px) {
+  .starred-image {
+    width: 13%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .starred-icon {
+    margin-right: 15px;
+  }
+}
 /*# sourceMappingURL=ContactView.css.map */
