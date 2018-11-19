@@ -39,6 +39,9 @@
     &__wrapper {
         width: 90%;
         position: relative;
+        @media screen and (max-width: 414px) {
+            width: 80%;
+        }
         i {
             position: absolute;
             left: 25px;

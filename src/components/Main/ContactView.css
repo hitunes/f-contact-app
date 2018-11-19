@@ -28,14 +28,27 @@
   width: 100%;
 }
 
+@media screen and (max-width: 414px) {
+  .display-fw {
+    width: 45%;
+    margin-left: auto;
+  }
+}
+
 .display-hw {
   width: calc(100% - 25%);
   margin-left: auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) and (min-width: 415px) {
   .display-hw {
-    width: 25%;
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .display-hw {
+    width: 100%;
   }
 }
 
@@ -54,6 +67,14 @@
           align-items: center;
   margin-bottom: 20px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .list__table tr {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }
 
 .list__table tr:hover {
@@ -78,6 +99,12 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media screen and (max-width: 414px) {
+  .list__table-td-icon-group {
+    display: none;
+  }
 }
 
 .list__table-td-image {
@@ -108,7 +135,7 @@
   width: 25%;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 768px) {
   .list__table-td-email {
     display: none !important;
   }
@@ -116,6 +143,12 @@
 
 .list__table-td-phone {
   width: 25%;
+}
+
+@media screen and (max-width: 414px) {
+  .list__table tr .contact-select i {
+    display: none !important;
+  }
 }
 
 .list__table tr .list__table-td-icon-group i,
@@ -128,6 +161,13 @@
 .list__table tr:hover .contact-select i {
   opacity: 0.6;
   cursor: pointer;
+}
+
+@media screen and (max-width: 414px) {
+  .list__table tr:hover .list__table-td-icon-group i,
+  .list__table tr:hover .contact-select i {
+    opacity: 0 !important;
+  }
 }
 
 .main-contact-icon:hover,

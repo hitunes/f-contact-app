@@ -7,9 +7,15 @@
   z-index: 11;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 415px) and (max-width: 768px) {
   .sidebar {
     width: 40%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .sidebar {
+    display: none;
   }
 }
 
@@ -35,8 +41,16 @@
 }
 
 .sidebar.open {
-  left: -275px;
   display: none;
+}
+
+@media screen and (max-width: 414px) {
+  .sidebar.open {
+    width: 35%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 .divider {

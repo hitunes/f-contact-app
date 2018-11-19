@@ -13,6 +13,12 @@
   font-size: 24px;
 }
 
+@media screen and (max-width: 414px) {
+  .view-contact__title-wrapper {
+    font-size: 18px;
+  }
+}
+
 .view-contact__image-wrapper {
   height: 50px;
   width: 50px;
@@ -41,6 +47,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
@@ -68,6 +75,12 @@
 
 .view-contact-body--description > div > div {
   margin-left: 45px;
+}
+
+@media screen and (max-width: 414px) {
+  .view-contact-body--description > div > div {
+    margin-left: 15px;
+  }
 }
 
 .view-contact-body--description i {
