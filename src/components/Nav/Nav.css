@@ -25,6 +25,12 @@
   margin-right: 25px;
 }
 
+@media screen and (max-width: 414px) {
+  .nav__wrapper-left-item {
+    width: 25%;
+  }
+}
+
 .nav__wrapper-left-item > span {
   cursor: pointer;
 }
@@ -57,6 +63,12 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media screen and (max-width: 414px) {
+  .nav__wrapper-right-item {
+    width: 65%;
+  }
 }
 
 .nav__wrapper-right-item input {

@@ -4,8 +4,11 @@
     width: 25%;
     transition: 0.33s all ease;
     z-index: 11;
-    @media screen and (max-width: 768px) {
+    @media screen and (min-width: 415px) and (max-width: 768px) {
         width: 40%;
+    }
+    @media screen and (max-width: 414px) {
+        display: none;
     }
     &__ul {
         list-style: none;
@@ -27,8 +30,11 @@
 }
 
 .sidebar.open {
-    left: -275px;
     display: none;
+    @media screen and (max-width: 414px) {
+        width: 35%;
+        display: flex;
+    }
 }
 
 .divider {

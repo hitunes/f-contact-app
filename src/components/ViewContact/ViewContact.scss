@@ -5,6 +5,9 @@
         display: flex;
         align-items: center;
         font-size: 24px;
+        @media screen and (max-width: 414px) {
+            font-size: 18px;
+        }
     }
     &__image-wrapper {
         height: 50px;
@@ -28,6 +31,7 @@
         display: flex;
         width: 15%;
         justify-content: space-between;
+        cursor: pointer;
         @media screen and (max-width: 768px) {
             width: 30%;
         }
@@ -43,6 +47,9 @@
                 margin-bottom: 20px;
                 >div {
                     margin-left: 45px;
+                    @media screen and (max-width: 414px) {
+                        margin-left: 15px;
+                    }
                 }
             }
             i {

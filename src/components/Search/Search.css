@@ -46,6 +46,12 @@
   position: relative;
 }
 
+@media screen and (max-width: 414px) {
+  .search-input__wrapper {
+    width: 80%;
+  }
+}
+
 .search-input__wrapper i {
   position: absolute;
   left: 25px;
