@@ -1,5 +1,5 @@
 .view-contact {
-  height: 70px;
+  height: 70px !important;
   position: relative;
 }
 
@@ -43,8 +43,15 @@
           justify-content: space-between;
 }
 
+@media screen and (max-width: 768px) {
+  .view-contact__icon-group {
+    width: 30%;
+  }
+}
+
 .view-contact-body {
   padding-top: 25px;
+  padding-left: 25px;
   display: block;
 }
 

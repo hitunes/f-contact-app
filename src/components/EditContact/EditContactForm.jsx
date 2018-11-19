@@ -1,7 +1,6 @@
 import React from "react";
 
 const EditContactForm = props => {
-  console.log(props.contact);
   return (
     <div className="modal-body__input">
       <form key={props.contact}>

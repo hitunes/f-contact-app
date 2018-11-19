@@ -1,20 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Button } from "../Button/Button";
 import NewContactForm from "./NewContactForm";
 import ModalLauncher from "./../Modal/ModalLauncher";
 import * as ContactActions from "../../store/actions/actions";
-import { Button } from "../Button/Button";
 
 const NewContact = props => {
+  // shows New contact modal Onclick
   const showModal = payload => {
     props.showNewContactModal(payload);
   };
+  // hides New Contact modal Onclick
   const hideModal = payload => {
     props.hideNewContactModal(payload);
   };
+  // listens to input value change in form and set as new field state
   const handleInputChange = e => {
     props.handleInputChange({ [e.target.name]: e.target.value });
   };
+  // collects form input value on submit and close modal
   const handleNewContactSubmit = value => {
     props.handleNewContactSubmit(value);
     props.hideNewContactModal(value);

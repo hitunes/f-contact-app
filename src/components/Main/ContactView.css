@@ -18,6 +18,12 @@
   font-weight: 500;
 }
 
+@media screen and (max-width: 768px) {
+  .contact-view__wrapper {
+    padding: 10px;
+  }
+}
+
 .display-fw {
   width: 100%;
 }
@@ -25,6 +31,12 @@
 .display-hw {
   width: calc(100% - 25%);
   margin-left: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .display-hw {
+    width: 25%;
+  }
 }
 
 .list__table table {
@@ -86,8 +98,20 @@
   margin-right: 8px;
 }
 
+@media screen and (max-width: 414px) {
+  .list__table-td-name {
+    margin-right: 20px;
+  }
+}
+
 .list__table-td-email {
   width: 25%;
+}
+
+@media screen and (max-width: 414px) {
+  .list__table-td-email {
+    display: none !important;
+  }
 }
 
 .list__table-td-phone {

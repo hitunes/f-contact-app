@@ -21,6 +21,13 @@
           box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
+@media screen and (max-width: 414px) {
+  .modal-main {
+    width: 80%;
+    left: 44%;
+  }
+}
+
 .modal-title {
   height: 40px;
   font-size: 22px;
@@ -66,6 +73,12 @@
 
 .modal-body--icon-row .contact-avatar {
   font-size: 40px;
+}
+
+@media screen and (max-width: 414px) {
+  .modal-body--icon-row {
+    display: none;
+  }
 }
 
 .modal-body__input {

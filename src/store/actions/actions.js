@@ -1,5 +1,5 @@
 import * as ContactTypes from "./types";
-
+// actions waiting to be dispatched
 export const starContact = payload => ({
   type: ContactTypes.STAR_CONTACT,
   payload

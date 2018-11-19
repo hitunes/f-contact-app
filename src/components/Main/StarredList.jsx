@@ -3,9 +3,11 @@ import { connect } from "react-redux";
 import * as ContactActions from "../../store/actions/actions";
 
 const StarredList = props => {
+  // onClick remove contact from favourite list
   const unStarContact = value => {
     props.unStarContact(value);
   };
+  // onClick shows view modal
   const showViewModal = payload => {
     props.showViewContactModal(payload);
   };

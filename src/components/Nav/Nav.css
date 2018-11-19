@@ -34,6 +34,18 @@
   margin-right: 50px;
 }
 
+@media screen and (max-width: 768px) {
+  .nav__wrapper-left-item > span i {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav__wrapper-left-item h2 {
+    font-size: 16px;
+  }
+}
+
 .nav__wrapper-right-item {
   width: 72%;
   display: -webkit-box;

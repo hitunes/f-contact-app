@@ -5,6 +5,7 @@ import * as ContactActions from "../../store/actions/actions";
 
 const Sidebar = props => {
   let sidebarClass = props.sidebar.sidebarOpen ? "sidebar open" : "sidebar";
+  // toggle sidebar state
   const activeSidebarLink = payload => {
     props.activeSidebarLink(payload);
   };
