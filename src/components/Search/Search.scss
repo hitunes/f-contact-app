@@ -32,6 +32,9 @@
     &-email {
         margin-left: 10px;
         opacity: 0.5;
+        @media screen and (max-width: 414px) {
+            display: none;
+        }
     }
 }
 

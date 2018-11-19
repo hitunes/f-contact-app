@@ -112,6 +112,12 @@
   margin-right: 25px;
 }
 
+@media screen and (max-width: 414px) {
+  .list__table-td-image {
+    width: 45%;
+  }
+}
+
 .list__table-td-image img {
   width: 100%;
   border-radius: 100%;

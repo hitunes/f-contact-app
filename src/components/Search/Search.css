@@ -41,6 +41,12 @@
   opacity: 0.5;
 }
 
+@media screen and (max-width: 414px) {
+  .suggestion-email {
+    display: none;
+  }
+}
+
 .search-input__wrapper {
   width: 90%;
   position: relative;
