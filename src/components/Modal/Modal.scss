@@ -52,6 +52,9 @@
         &__input {
             width: 80%;
             padding-top: 23px;
+            @media screen and (max-width: 414px) {
+                width: 100%;
+            }
             div {
                 margin-bottom: 10px;
             }
@@ -61,6 +64,7 @@
                 border-top: 0;
                 border-right: 0;
                 width: 100%;
+                padding: 0;
             }
             input:focus {
                 outline: 0;

@@ -44,8 +44,7 @@ const Search = props => {
                   <div className="suggestion-lastname">
                     {suggestion.lastName}
                   </div>
-                  <div>-</div>
-                  <div className="suggestion-email">{suggestion.email}</div>
+                  <div className="suggestion-email"> - {suggestion.email}</div>
                 </li>
               );
             })}

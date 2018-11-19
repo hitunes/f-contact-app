@@ -8,6 +8,7 @@
   display: flex;
   width: 100%;
   padding-top: 65px;
+  overflow-x: hidden;
 }
 
 .App-new-contact-icon, .App-delete-contact-icon {

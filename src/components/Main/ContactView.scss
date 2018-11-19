@@ -68,6 +68,9 @@
     &-td-image {
         width: 4%;
         margin-right: 25px;
+        @media screen and (max-width: 414px) {
+            width: 45%;
+        }
         img {
             width: 100%;
             border-radius: 100%;
