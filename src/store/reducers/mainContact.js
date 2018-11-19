@@ -122,6 +122,7 @@ export const ContactReducer = (state = initialState, action) => {
 
     // gets the values of edit modal
     case ContactTypes.HANDLE_EDIT_INPUT_CHANGE:
+      console.log(action.payload);
       const editContactInfoCopy = [...state.editContactInfo];
       return {
         ...state,
