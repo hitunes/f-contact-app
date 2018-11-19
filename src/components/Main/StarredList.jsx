@@ -18,14 +18,14 @@ const StarredList = props => {
           {props.list.map((item, index) => (
             <tr key={index}>
               <td
-                className="list__table-td-icon"
+                className="list__table-td-icon starred-icon"
                 onClick={() => unStarContact(item)}
               >
                 <i className="fas fa-star star-orange" />
               </td>
               <td
                 onClick={() => showViewModal(item)}
-                className="list__table-td-image"
+                className="list__table-td-image starred-image"
               >
                 <img src={item.image} alt="profile" />
               </td>
