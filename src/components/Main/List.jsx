@@ -1,25 +1,31 @@
 import React from "react";
 import { connect } from "react-redux";
+import ViewContact from "../ViewContact/ViewContact";
 import EditContact from "../EditContact/EditContact";
 import * as ContactActions from "../../store/actions/actions";
-import ViewContact from "../ViewContact/ViewContact";
 
 const List = props => {
+  // mark contact as favourite onClick
   const starContact = value => {
     props.starContact(value);
   };
+  // push contact/contacts into an array to be deleted
   const markToDelete = value => {
     props.markToDelete(value);
   };
+  // shows New contact modal form onClick
   const showModal = payload => {
     props.showNewContactModal(payload);
   };
+  // shows edit contact modal form onClick
   const showEditModal = payload => {
     props.showEditContactModal(payload);
   };
+  // shows View contact modal form onClick
   const showViewModal = payload => {
     props.showViewContactModal(payload);
   };
+  // hides New contact modal form onClic
   const hideViewModal = payload => {
     props.hideViewContactModal(payload);
   };

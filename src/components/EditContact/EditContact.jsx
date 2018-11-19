@@ -1,14 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Button } from "../Button/Button";
+import EditContactForm from "./EditContactForm";
 import ModalLauncher from "./../Modal/ModalLauncher";
 import * as ContactActions from "../../store/actions/actions";
-import EditContactForm from "./EditContactForm";
-import { Button } from "../Button/Button";
 
 const EditContact = props => {
+  // hide modal on click
   const hideModal = payload => {
     props.hideEditContactModal(payload);
   };
+  // gets the value of edited input fields
   const handleEditInputChange = e => {
     props.handleEditInputChange(
       Object.assign(
@@ -17,12 +19,12 @@ const EditContact = props => {
       )
     );
   };
+  // fires when user submit edited form and close modal
   const handleEditContactSubmit = value => {
     props.handleEditContactSubmit(value);
     props.hideEditContactModal(value);
   };
   const contact = props.editContact.contactInfo;
-  console.log(contact);
   return (
     <React.Fragment>
       <ModalLauncher show={props.editContact.showEditContactModal}>

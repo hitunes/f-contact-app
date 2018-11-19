@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import * as ContactActions from "../../store/actions/actions";
 
 const Nav = props => {
+  // Onclick toggles sidebar on/off
   const toggleSidebar = payload => {
     props.toggleSidebar(payload);
   };

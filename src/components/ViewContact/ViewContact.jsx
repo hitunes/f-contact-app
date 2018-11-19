@@ -5,22 +5,28 @@ import ModalLauncher from "../Modal/ModalLauncher";
 import * as ContactActions from "../../store/actions/actions";
 
 const ViewContact = props => {
+  // shows Edit modal onclick
   const showEditModal = payload => {
     props.showEditContactModal(payload);
   };
+  // hides edit modal onclick
   const hideViewModal = payload => {
     props.hideViewContactModal(payload);
   };
+  // toggles delete icon
   const showDelete = payload => {
     props.showDeleteSingleContact(payload);
   };
+  // deletes contact and exit modal
   const deleteContact = payload => {
     props.deleteSingleContact(payload);
     props.hideViewContactModal(false);
   };
+  // marks contact as favourite onClick
   const starContact = payload => {
     props.starContact(payload);
   };
+  // formats contacts company and jobTitle view as Job title only or Company only  or Job title, Company
   const jobRender = contact => {
     if (contact.jobTitle === "") {
       return <div>{contact.company}</div>;
@@ -38,8 +44,10 @@ const ViewContact = props => {
   };
   const contact = props.viewContact.contactInfo;
   const toggleDeleteState = props.viewContact.showDelete;
+  // gets state of contact favourite
   const starred =
     contact.starred === true ? "fas fa-star star-orange" : "far fa-star ";
+  // gets state of delete icon
   const toggleDelete = toggleDeleteState === true ? "d-flex" : "d-none";
   return (
     <React.Fragment>
@@ -74,7 +82,7 @@ const ViewContact = props => {
             </div>
           </div>
         </div>
-        <div className="modal-body view-contact-body">
+        <div className="view-contact-body">
           <div className="view-contact-body--title">
             <b>Contact Details</b>
           </div>
@@ -99,6 +107,7 @@ const ViewContact = props => {
               </div>
               <div className="view-contact-body--description-tel">
                 {contact.phoneNo}
+                <span> &bull; mobile</span>
               </div>
             </div>
           </div>
@@ -107,6 +116,7 @@ const ViewContact = props => {
     </React.Fragment>
   );
 };
+// Delete comoponent
 export const DeleteSingleContact = props => {
   return (
     <div

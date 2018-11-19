@@ -1,17 +1,16 @@
 import React from "react";
 
 const EditContactForm = props => {
-  console.log(props.contact);
   return (
     <div className="modal-body__input">
-      <form key={props.contact}>
+      <form key={props.contact.id}>
         <div className="modal-body__input--name">
           <input
             type="text"
             name="firstName"
             placeholder="First Name"
             onChange={props.handleEditInputChange}
-            value={"" || props.contact.firstName}
+            defaultValue={"" || props.contact.firstName}
           />
           <input
             type="text"
@@ -24,14 +23,14 @@ const EditContactForm = props => {
         <div className="modal-body__input--job">
           <input
             type="text"
-            name="Company"
+            name="company"
             placeholder="Company"
             onChange={props.handleEditInputChange}
             defaultValue={props.contact.company}
           />
           <input
             type="text"
-            name="JobTitle"
+            name="jobTitle"
             placeholder="Job Title"
             onChange={props.handleEditInputChange}
             defaultValue={props.contact.jobTitle}
@@ -40,7 +39,7 @@ const EditContactForm = props => {
         <div className="modal-body__input--email">
           <input
             type="email"
-            name="Email"
+            name="email"
             placeholder="Email"
             onChange={props.handleEditInputChange}
             defaultValue={props.contact.email}
@@ -49,10 +48,10 @@ const EditContactForm = props => {
         <div className="modal-body__input--phone">
           <input
             type="tel"
-            name="Phone"
+            name="phoneNo"
             placeholder="Phone"
             onChange={props.handleEditInputChange}
-            value={"" || props.contact.phoneNo}
+            defaultValue={props.contact.phoneNo}
           />
         </div>
         <div className="modal-body__input--phone">
