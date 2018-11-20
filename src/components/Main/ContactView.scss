@@ -92,7 +92,10 @@
         }
     }
     &-td-phone {
-        width: 25%;
+        min-width: 25%;
+        @media screen and (max-width: 414px) {
+            opacity: 0.8
+        }
     }
     tr .contact-select i {
         @media screen and (max-width: 414px) {
@@ -148,7 +151,7 @@
 
 .starred-image {
     @media screen and (max-width: 414px) {
-        width: 13%;
+        width: 10%;
     }
 }
 
