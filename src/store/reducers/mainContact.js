@@ -1,6 +1,5 @@
 /*jshint esversion: 6 */
 import * as ContactTypes from "../actions";
-const rand = Math.random(0) * 10;
 
 const initialState = {
   contactInfo: [],
@@ -18,7 +17,7 @@ const initialState = {
       company: "",
       checked: false,
       active: false,
-      image: `https://robohash.org/${rand + 1}.png?bgset=bg1`
+      image: `https://robohash.org/1.png?bgset=bg1`
     },
     {
       id: 1,
@@ -30,7 +29,7 @@ const initialState = {
       company: "Fluid Angle",
       checked: false,
       active: false,
-      image: `https://robohash.org/${rand + 2}.png?bgset=bg1`
+      image: `https://robohash.org/2.png?bgset=bg1`
     },
     {
       id: 2,
@@ -43,7 +42,7 @@ const initialState = {
       phoneNo: +2348065976615,
       checked: false,
       active: false,
-      image: `https://robohash.org/${rand + 3}.png?bgset=bg1`
+      image: `https://robohash.org/3.png?bgset=bg1`
     },
     {
       id: 3,
@@ -56,7 +55,7 @@ const initialState = {
       phoneNo: +2348065976616,
       checked: false,
       active: false,
-      image: `https://robohash.org/${rand + 4}.png?bgset=bg1`
+      image: `https://robohash.org/4.png?bgset=bg1`
     }
   ],
   // holds favourite contacts
@@ -141,6 +140,10 @@ export const ContactReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+//
+//
+// // helper Functions ************************************
 function handleEditContactSubmit(
   submittedEditedContact,
   cloneEditedContactList,
@@ -163,34 +166,38 @@ function handleEditContactSubmit(
     editcontactInfo: []
   };
 }
-//
-//
-// // helper Functions
+
 function handleNewContactSubmit(submittedContact, cloneContactList, state) {
-  const mergeContactList = submittedContact.reduce(
-    (r, c) => Object.assign(r, c),
-    {
-      id: cloneContactList.length,
-      image: `https://robohash.org/${cloneContactList.length}.png?bgset=bg1`,
-      starred: false,
-      checked: false,
-      active: false
-    },
-    {}
-  );
-  cloneContactList.push(mergeContactList);
-  // sorts the array alphabetically
-  cloneContactList.sort((a, b) => {
-    let nameA = a.firstName.toLowerCase();
-    let nameB = b.firstName.toLowerCase();
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-    return 0;
-  });
+  console.log(submittedContact);
+  if (submittedContact.length > 2) {
+    const mergeContactList = submittedContact.reduce(
+      (r, c) => Object.assign(r, c),
+      {
+        id: cloneContactList.length,
+        image: `https://robohash.org/${cloneContactList.length +
+          1}.png?bgset=bg1`,
+        starred: false,
+        checked: false,
+        active: false
+      },
+      {}
+    );
+    cloneContactList.push(mergeContactList);
+    // sorts the array alphabetically
+    cloneContactList.sort((a, b) => {
+      let nameA = a.firstName.toLowerCase();
+      let nameB = b.firstName.toLowerCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+  } else {
+    alert("Contact informations cannot be empty");
+  }
   return { ...state, contactList: cloneContactList, contactInfo: [] };
 }
 

@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import Nav from "./Nav/Nav";
 import SideBar from "./Aside/SideBar";
 import ContactView from "./Main/ContactView";
-import NewContact from "./NewContact/NewContact";
 import * as ContactActions from "../store/actions/actions";
 
 class App extends Component {
@@ -14,7 +13,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NewContact />
         {this.props.contacts.selectedRows.length > 0 ? (
           <div
             onClick={this.deleteMultiple}
