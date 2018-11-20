@@ -148,7 +148,13 @@
 }
 
 .list__table-td-phone {
-  width: 25%;
+  min-width: 25%;
+}
+
+@media screen and (max-width: 414px) {
+  .list__table-td-phone {
+    opacity: 0.8;
+  }
 }
 
 @media screen and (max-width: 414px) {
@@ -223,7 +229,7 @@
 
 @media screen and (max-width: 414px) {
   .starred-image {
-    width: 13%;
+    width: 10%;
   }
 }
 
