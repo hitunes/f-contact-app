@@ -1,22 +1,23 @@
 import React from "react";
 
 const NewContactForm = props => {
+  console.log(props.form);
   return (
     <div className="modal-body__input">
-      <form onSubmit={props.handleNewContactSubmit}>
+      <form id="new-contact-form" onSubmit={props.handleNewContactSubmit}>
         <div className="modal-body__input--name">
           <input
             type="text"
             name="firstName"
             placeholder="First Name"
-            defaultValue=""
+            defaultValue={props.value}
             onChange={props.handleInputChange}
           />
           <input
             type="text"
             name="lastName"
             placeholder="Last Name"
-            defaultValue=""
+            value={props.value}
             onChange={props.handleInputChange}
           />
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import NewContact from "../NewContact/NewContact";
 import ViewContact from "../ViewContact/ViewContact";
 import EditContact from "../EditContact/EditContact";
 import * as ContactActions from "../../store/actions/actions";
@@ -33,6 +34,7 @@ const List = props => {
     <React.Fragment>
       <ViewContact hideViewModal={hideViewModal} />
       <EditContact />
+      <NewContact />
       <div className="list__table">
         {props.list.length === 0 ? (
           <div className="intro-text">
